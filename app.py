@@ -5,9 +5,23 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/submit')
+@app.route('/submit', methods=['POST'])
 def submit():
-    return render_template('submit.html')
+    spoilertext = request.form.get('spoilertext')
+    # Run ML on spoilertext
+    spoiler = True
+
+    data = {
+        "safe": "Safe",
+    }
+
+    if spoiler:
+        data = {
+            "spoiler": "Spoiler",
+        }
+
+    return render_template('submit.html', data=data)
+
 
 if __name__ == '__main__':
     app.run()
