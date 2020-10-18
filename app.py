@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+from model import Test
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,8 +11,14 @@ def index():
 def submit():
     spoilertext = request.form.get('spoilertext')
     # Run ML on spoilertext
-    spoiler = True
+    # print(spoilertext)
 
+    spoiler = False
+    spoilersArray = ["kill", "spoiler", "die"]
+    for s in spoilersArray:
+        if s in spoilertext:
+            spoiler = True
+        
     data = {
         "safe": "Safe",
     }

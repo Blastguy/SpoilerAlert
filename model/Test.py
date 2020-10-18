@@ -52,7 +52,7 @@ def preprocess(val):
     val['review_text'] = val['review_text'].apply(lambda x:" ".join(re.sub(regex, 'numbers', word) for word in x.split()))
     
     vectorizer = TfidfVectorizer()
-    xtrain = pickle.load(open('train.pkl','rb'))
+    xtrain = pickle.load(open('C:/CS/Python/SpoilerAlert/model/train.pkl', 'rb'))
     vectorizer.fit_transform(xtrain)
     val = vectorizer.transform(list(val['review_text']))
     
@@ -60,7 +60,5 @@ def preprocess(val):
 
 def result(s):
     pred = preprocess(s)
-    model = pickle.load(open('model.pkl','rb'))
-    return (model.predict(pred))
-
-
+    model = pickle.load(open('C:/CS/Python/SpoilerAlert/model/model.pkl', 'rb'))
+    return model.predict(pred)
