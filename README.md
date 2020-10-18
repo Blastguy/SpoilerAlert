@@ -1,7 +1,4 @@
-# SpoilerAlert
-HackGT 2020 Project
-
-## Don’t Spoil on Me
+# Don’t Spoil on Me
 Your new favorite site to thwart spoilers!
 
 ## Inspiration
